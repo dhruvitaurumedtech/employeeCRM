@@ -108,6 +108,13 @@
             </a>
            
           </li>
+          <li class="menu-item ">
+            <a href="{{url('/create/role')}}" class="menu-link ">
+              <i class="menu-icon tf-icons bx bx-home-smile"></i>
+              <div class="text-truncate" >Role</div>
+            </a>
+           
+          </li>
 
           <!-- Layouts -->
         
