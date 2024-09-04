@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}" />
   <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
   <script src="{{asset('assets/js/config.js')}}"></script>
+  <link rel="stylesheet" href="{{asset('assets/css/custom_style.css')}}" />
+
 </head>
 <body>
  <div class="layout-wrapper layout-content-navbar">
@@ -109,41 +111,18 @@
            
           </li>
           <li class="menu-item ">
-            <a href="{{url('/create/role')}}" class="menu-link ">
+            <a href="{{url('/role/create')}}" class="menu-link ">
               <i class="menu-icon tf-icons bx bx-home-smile"></i>
               <div class="text-truncate" >Role</div>
             </a>
            
           </li>
 
-          <!-- Layouts -->
-        
-
-          <!-- Apps & Pages -->
-          <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Apps &amp; Pages</span>
-          </li>
-          <li class="menu-item">
-            <a
-              href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-email.html"
-              target="_blank"
-              class="menu-link">
-              <i class="menu-icon tf-icons bx bx-envelope"></i>
-              <div class="text-truncate" data-i18n="Email">Email</div>
-              <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro</div>
-            </a>
-          </li>
-         
-          <!-- Components -->
-         
+            
         </ul>
       </aside>
-      <!-- / Menu -->
-
-      <!-- Layout container -->
       <div class="layout-page">
-        <!-- Navbar -->
-
+    
         <nav
           class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
           id="layout-navbar">
@@ -154,15 +133,9 @@
           </div>
 
           <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-            <!-- Search -->
             <div class="navbar-nav align-items-center">
               <div class="nav-item d-flex align-items-center">
-                <i class="bx bx-search bx-md"></i>
-                <input
-                  type="text"
-                  class="form-control border-0 shadow-none ps-1 ps-sm-2"
-                  placeholder="Search..."
-                  aria-label="Search..." />
+                 <b>Employee_management</b>
               </div>
             </div>
             <!-- /Search -->
@@ -190,8 +163,7 @@
                           </div>
                         </div>
                         <div class="flex-grow-1">
-                          <h6 class="mb-0">John Doe</h6>
-                          <small class="text-muted">Admin</small>
+                          <h6 class="mb-0">{{auth()->user()->name}}</h6>
                         </div>
                       </div>
                     </a>
@@ -230,7 +202,30 @@
             </ul>
           </div>
         </nav>
+        <script>
+    window.setTimeout(function() {
+        $(".alert-success").slideUp(500, function() {
+            $(this).remove();
+        });
 
+    }, 3000);
+</script>
+<div class="row mt-5">
+    <div class="col-md-10 offset-md-1">
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+    </div>
+    <div class="col-md-10 offset-md-1">
+        @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+        @endif
+    </div>
+</div>
         <!-- / Navbar -->
 
         <!-- Content wrapper -->

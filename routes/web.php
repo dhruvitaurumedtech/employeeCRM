@@ -17,10 +17,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/create/role', [RoleController::class, 'create']);
-    Route::post('/store/role', [RoleController::class, 'store']);
-    Route::get('/list/role', [RoleController::class, 'list'])->name('role.list');
-
+    Route::get('/role/create', [RoleController::class, 'create']);
+    Route::post('/role/store', [RoleController::class, 'store']);
+    Route::get('/role/list', [RoleController::class, 'list'])->name('role.list');
+    Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+    Route::post('/role/update', [RoleController::class, 'update']);
+    Route::get('/role/delete/{id}', [RoleController::class, 'destroy'])->name('role.delete');
+    Route::post('/role/update-status/{id}', [RoleController::class, 'updateStatus'])->name('role.updateStatus');
 });
 
 require __DIR__.'/auth.php';
