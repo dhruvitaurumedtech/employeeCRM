@@ -12,6 +12,13 @@
                     <div class="card-header d-flex align-items-center justify-content-between">
                       <h5 class="mb-0"><b>Role create</b></h5>
                     </div>
+                    <div class="dt-action-buttons text-end pt-6 pt-md-0">
+                            <div class="dt-buttons btn-group flex-wrap">
+                                <div class="btn-group">
+                                                  <a href="{{url('list/role')}}" class="btn btn-secondary create-new btn-primary text-white" tabindex="0" aria-controls="DataTables_Table_0" type="button"><span> <span class="d-none d-sm-inline-block">Role List</span></span></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body">
                       <form method="post" action="{{url('store/role')}}">
                         @csrf
@@ -26,7 +33,6 @@
                           <div class="col-sm-10">
                           <input type="hidden" name="status" value="0">
                             <label class="switch">
-                                <!-- Checkbox input to pass a value of '1' when checked -->
                                 <input type="checkbox" name="status" value="1">
                                 <span class="slider round"></span>
                             </label>

@@ -20,7 +20,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('role_create');
+        return view('role/role_create');
     }
 
     /**
@@ -28,28 +28,23 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        echo "<pre>";print_r($request->all());exit;
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|unique:role,name|string|max:255',
             'status' => 'required|in:0,1', // Assuming status is an enum with values '0' or '1'
         ]);
 
-        // Create a new role with validated data
         $role = Role::create($validatedData);
 
-        // Return a JSON response indicating success
-        return response()->json([
-            'message' => 'Role created successfully!',
-            'role' => $role
-        ], 201);
+        return redirect()->route('role.list')->with('success', 'Role Created Successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function list()
     {
-        //
+        $roles=Role::all();
+        return view('role/role_list',compact('roles'));
     }
 
     /**

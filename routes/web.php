@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/create/role', [RoleController::class, 'create']);
     Route::post('/store/role', [RoleController::class, 'store']);
+    Route::get('/list/role', [RoleController::class, 'list'])->name('role.list');
 
 });
 
