@@ -102,13 +102,15 @@
 
         <div class="menu-inner-shadow"></div>
         <ul class="menu-inner py-1">
-          <li class="menu-item ">
-            <a href="{{url('/dashboard')}}" class="menu-link ">
-              <i class="menu-icon tf-icons bx bx-home-smile"></i>
-              <div class="text-truncate" >Dashboard</div>
-            </a>
-           
-          </li>
+        @php $gethelpermenu = getDynamicMenu() @endphp
+            @foreach($gethelpermenu as $menu)
+            <li class="menu-item">
+                <a href="{{ url($menu->url) }}" class="menu-link">
+                    <i class="menu-icon tf-icons"></i>
+                    <div class="text-truncate">{{ $menu->name }}</div>
+                </a>
+            </li>
+            @endforeach
           <!-- <li class="menu-item ">
             <a href="{{url('/role/create')}}" class="menu-link ">
               <i class="menu-icon tf-icons bx bx-home-smile"></i>
