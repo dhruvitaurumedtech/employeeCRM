@@ -1,5 +1,6 @@
-@include('layouts.navigation')
-<div class="content-wrapper">
+@extends('layouts.app')
+@section('main')
+
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
@@ -562,6 +563,6 @@
        
             <!-- / Footer -->
 
-            <div class="content-backdrop fade"></div>
-          </div>
-          @include('layouts.footer')
+            
+          
+@endsection

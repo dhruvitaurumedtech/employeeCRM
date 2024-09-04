@@ -1,4 +1,5 @@
-<!doctype html>
+
+        <!-- Navbar -->
 
 <html
   lang="en"
