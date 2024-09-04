@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/role/update', [RoleController::class, 'update']);
     Route::get('/role/delete/{id}', [RoleController::class, 'destroy'])->name('role.delete');
     Route::post('/role/update-status/{id}', [RoleController::class, 'updateStatus'])->name('role.updateStatus');
+
+    Route::get('/user/list', [RoleController::class, 'index'])->name('user.list');
 });
 
 require __DIR__.'/auth.php';

@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Datatable;
+use Yajra\DataTables\DataTables;
 
 class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->ajax()){
+            $users =  User::select(['name', 'email']);
+            return DataTables::of($users)->make(true);
+        }
+        return view("users/user");
     }
 
     /**

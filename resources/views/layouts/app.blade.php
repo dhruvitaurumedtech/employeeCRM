@@ -32,7 +32,9 @@
   <link rel="stylesheet" href="{{asset('assets/css/custom_style.css')}}" />
   <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
   <script src="{{asset('assets/js/config.js')}}"></script>
-  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 </head>
 <body>
     <!-- Layout wrapper -->
@@ -115,6 +117,13 @@
             <a href="{{url('/role/create')}}" class="menu-link ">
               <i class="menu-icon tf-icons bx bx-home-smile"></i>
               <div class="text-truncate" >Role</div>
+            </a>
+           
+          </li>
+          <li class="menu-item ">
+            <a href="{{url('/user/list')}}" class="menu-link ">
+              <i class="menu-icon tf-icons bx bx-home-smile"></i>
+              <div class="text-truncate" >Users</div>
             </a>
            
           </li>
