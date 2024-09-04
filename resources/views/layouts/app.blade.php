@@ -101,24 +101,22 @@
         </div>
 
         <div class="menu-inner-shadow"></div>
-
         <ul class="menu-inner py-1">
-          <!-- Dashboards -->
           <li class="menu-item ">
             <a href="{{url('/dashboard')}}" class="menu-link ">
               <i class="menu-icon tf-icons bx bx-home-smile"></i>
-              <div class="text-truncate" >Dashboards</div>
+              <div class="text-truncate" >Dashboard</div>
             </a>
            
           </li>
-          <li class="menu-item ">
+          <!-- <li class="menu-item ">
             <a href="{{url('/role/create')}}" class="menu-link ">
               <i class="menu-icon tf-icons bx bx-home-smile"></i>
               <div class="text-truncate" >Role</div>
             </a>
            
           </li>
-
+          -->
             
         </ul>
       </aside>
@@ -142,30 +140,8 @@
 
             @yield('main')
         
-            <script>
-    window.setTimeout(function() {
-        $(".alert-success").slideUp(500, function() {
-            $(this).remove();
-        });
-
-    }, 3000);
-</script>
-<div class="row mt-5">
-    <div class="col-md-10 offset-md-1">
-        @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-        @endif
-    </div>
-    <div class="col-md-10 offset-md-1">
-        @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-        @endif
-    </div>
-</div>
+         
+          </div>
         @include('layouts.footer')
 
     </body>
