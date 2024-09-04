@@ -33,14 +33,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
-                                    <div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-select">
-                                                <option value="7">7</option>
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="75">75</option>
-                                                <option value="100">100</option>
-                                            </select> entries</label></div>
+                                   
                                 </div>
                                 <div class="col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-n6 mt-md-0">
                                     <div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_0"></label></div>
@@ -84,28 +77,19 @@
 
                                 </tbody>
                             </table>
-                      
-
-
+                     </div>
                     </div>
-                    
                   </div>
-                  </div>
-
-            </div>
+              </div>
             <div class="col-3 offset-9 mt-5">
                     <div class="dataTables_paginate paging_simple_numbers">
                         {{ $roles->links('pagination::bootstrap-4') }}  
                     </div>
                 </div>
-
-           
-
-
-      
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        
         $(document).ready(function() {
             $('.status-toggle').change(function() {
                 let status = $(this).is(':checked') ? 1 : 0;
@@ -128,8 +112,8 @@
                             $('.alert.auto-close').addClass('fade-out');
                             setTimeout(function() {
                                 $('.alert.auto-close').remove();
-                            }, 500); // Match this duration with the CSS transition time
-                        }, 5000); // Adjust this duration as needed
+                            }, 500); 
+                        }, 5000); 
                     },
 
                     error: function(xhr) {
@@ -142,15 +126,14 @@
                             $('.alert.auto-close').addClass('fade-out');
                             setTimeout(function() {
                                 $('.alert.auto-close').remove();
-                            }, 500); // Match this duration with the CSS transition time
-                        }, 5000); // Adjust this duration as needed
-                    }
+                            }, 500); 
+                        }, 5000);                     }
                 });
                 $('#alert-container').on('click', '.close', function() {
                     $(this).closest('.alert').addClass('fade-out');
                     setTimeout(function() {
                         $('.alert.fade-out').remove();
-                    }, 500); // Match this duration with the CSS transition time
+                    }, 500); 
                 });
             });
         });
