@@ -1,7 +1,5 @@
-@include('layouts.navigation')
-<link rel="stylesheet" href="{{asset('assets/css/custom_style.css')}}" />
-<div class="content-wrapper">
-    <!-- Content -->
+@extends('layouts.app')
+@section('main')
 
     <div class="container-xxl flex-grow-1 container-p-y">
 
@@ -77,6 +75,4 @@
 
 
     </div>
-
-</div>
-@include('layouts.footer')
+@endsection
