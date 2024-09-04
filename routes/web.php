@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/role/update-status/{id}', [RoleController::class, 'updateStatus'])->name('role.updateStatus');
 
     Route::get('/user/list', [RoleController::class, 'index'])->name('user.list');
+    Route::get('/user/permission/{id}', [PermissionController::class, 'permission'])->name('user.permission');
+
+    Route::post('/roles/{role}/permissions', [PermissionController::class, 'storePermissions'])->name('role.permissions.store');
+
 });
 
 require __DIR__.'/auth.php';

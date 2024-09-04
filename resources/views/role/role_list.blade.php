@@ -1,14 +1,9 @@
 @extends('layouts.app')
 @section('main')
-
-    <div class="container-xxl flex-grow-1 container-p-y ">
-
-
-        <!-- DataTable with Buttons -->
+<div class="container-xxl flex-grow-1 container-p-y ">
         <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div id="alert-container">
-                        <!-- Success and error messages will be injected here -->
                     </div>
                 </div>
             </div>
@@ -30,12 +25,12 @@
                         
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6">
+                                <div class="col-sm-12 col-md-6 mt-5">
                                    
                                 </div>
-                                <div class="col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-n6 mt-md-0">
+                                <!-- <div class="col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-n6 mt-md-0">
                                     <div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_0"></label></div>
-                                </div>
+                                </div> -->
                             </div>
                             <table class="datatables-basic table border-top dataTable no-footer dtr-column" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
                                 <thead>
@@ -43,7 +38,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 60px;" aria-label="Name: activate to sort column ascending">No</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 316px;" aria-label="Name: activate to sort column ascending">Role Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 300px;" aria-label="Email: activate to sort column ascending">Status</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 106px;" aria-label="Date: activate to sort column ascending">Action</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 306px;" aria-label="Date: activate to sort column ascending">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,6 +63,7 @@
                                                 Edit
                                             </a>
                                             <a href="{{url('role/delete/'.$value->id)}}" class="btn btn-danger text-white">Delete</a>
+                                            <a href="{{url('user/permission/'.$value->id)}}" class="btn btn-info text-white">Permission</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
