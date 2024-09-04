@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class RoleController extends Controller
 {
@@ -43,7 +44,7 @@ class RoleController extends Controller
      */
     public function list()
     {
-        $roles=Role::all();
+        $roles=Role::paginate(2);
         return view('role/role_list',compact('roles'));
     }
 
@@ -52,22 +53,56 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $id = $id;
+        $roles = Role::find($id);
+        return view('role/role_edit',compact('roles'));
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        // print_r($request->all());exit; 
+        $id = $request->id;
+        $role = Role::find($id);
+        $request->validate([
+            'name' => [
+                        'required',
+                        'string',
+                        'max:255',
+                        Rule::unique('role', 'name')->ignore($id),
+                    ],
+        ]);
+        
+        $role->update([
+            'name' => $request->name,
+        ]);
+        return redirect()->route('role.list')->with('success', 'Role Updated successfully');
     }
+    public function updateStatus(Request $request, $id)
+        {
+            $validated = $request->validate([
+                'status' => 'required|boolean',
+            ]);
 
+            $item = Role::findOrFail($id);
+            $item->status = $request->input('status');
+            $item->save();
+
+            return response()->json(['message' => 'Role Updated successfully']);
+        }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $role_list = Role::find($id);
+        if (!$role_list) {
+            return redirect()->route('role.list')->with('error', 'Role not found');
+        }
+        $role_list->delete();
+        return redirect()->route('role.list')->with('success', 'Role deleted successfully');
     }
 }
