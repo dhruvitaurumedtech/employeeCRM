@@ -83,7 +83,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        
         $(document).ready(function() {
             $('.status-toggle').change(function() {
                 let status = $(this).is(':checked') ? 1 : 0;
